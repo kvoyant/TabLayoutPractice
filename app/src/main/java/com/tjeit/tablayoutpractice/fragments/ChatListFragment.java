@@ -29,6 +29,6 @@ public class ChatListFragment extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        binding.welcomeMsgTxt.setText("채팅리스트 뷰 화면에 오신걸 환영합니다.");
+        binding.welcomeMsgTxt.setText("채팅리스트 뷰 화면.");
     }
 }

@@ -1,6 +1,7 @@
 package com.tjeit.tablayoutpractice;
 
 import android.databinding.DataBindingUtil;
+import android.support.design.widget.TabLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -26,6 +27,26 @@ public class MainActivity extends BaseActivity {
 
     @Override
     public void setupEvents() {
+        //뷰페이저 이동시 처리
+        act.viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(act.tabLayout));
+
+        //상단 TabLayout 버튼 클릭시 처리
+        act.tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                act.viewPager.setCurrentItem(tab.getPosition());
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
+            }
+        });
     }
 
     @Override
