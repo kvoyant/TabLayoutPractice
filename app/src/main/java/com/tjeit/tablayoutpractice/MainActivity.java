@@ -7,11 +7,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
 
+import com.tjeit.tablayoutpractice.adapters.MainViewPagerAdapter;
 import com.tjeit.tablayoutpractice.databinding.ActivityMainBinding;
 
 public class MainActivity extends BaseActivity {
 
     ActivityMainBinding act;
+    MainViewPagerAdapter mvpa;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,18 +26,20 @@ public class MainActivity extends BaseActivity {
 
     @Override
     public void setupEvents() {
-        act.tabLayout.addTab(act.tabLayout.newTab().setText("홈").setIcon(R.mipmap.ic_launcher));
-        act.tabLayout.addTab(act.tabLayout.newTab().setText("채팅목록"));
-        act.tabLayout.addTab(act.tabLayout.newTab().setText("검색"));
-        act.tabLayout.addTab(act.tabLayout.newTab().setText("더보기"));
-        //tabMode : fixed => scrollable
-        act.tabLayout.addTab(act.tabLayout.newTab().setCustomView(createCustomTabView("커스텀")));
-        act.tabLayout.addTab(act.tabLayout.newTab().setCustomView(createCustomTabView("커스텀2")));
     }
 
     @Override
     public void setValues() {
+        act.tabLayout.addTab(act.tabLayout.newTab().setText("홈").setIcon(R.mipmap.ic_launcher));
+        act.tabLayout.addTab(act.tabLayout.newTab().setText("채팅목록"));
+        act.tabLayout.addTab(act.tabLayout.newTab().setText("검색"));
+//        act.tabLayout.addTab(act.tabLayout.newTab().setText("더보기"));
+        //tabMode : fixed => scrollable
+//        act.tabLayout.addTab(act.tabLayout.newTab().setCustomView(createCustomTabView("커스텀")));
+//        act.tabLayout.addTab(act.tabLayout.newTab().setCustomView(createCustomTabView("커스텀2")));
 
+        mvpa = new MainViewPagerAdapter(getSupportFragmentManager(), act.tabLayout.getTabCount());
+        act.viewPager.setAdapter(mvpa);
     }
 
     View createCustomTabView(String tabName){

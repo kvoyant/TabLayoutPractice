@@ -10,17 +10,18 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.tjeit.tablayoutpractice.R;
+import com.tjeit.tablayoutpractice.databinding.FragmentChatListBinding;
 import com.tjeit.tablayoutpractice.databinding.FragmentHomeBinding;
 
 
-public class HomeFragment extends Fragment {
+public class ChatListFragment extends Fragment {
 
-    FragmentHomeBinding binding;
+    FragmentChatListBinding binding;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_home, container,false);
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_chat_list,container, false);
         return binding.getRoot();
     }
 
@@ -28,6 +29,6 @@ public class HomeFragment extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        binding.welcomeMsgTxt.setText("홈 화면에 오신걸 환영합니다.");
+        binding.welcomeMsgTxt.setText("채팅리스트 뷰 화면에 오신걸 환영합니다.");
     }
 }

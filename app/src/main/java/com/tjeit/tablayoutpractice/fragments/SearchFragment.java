@@ -11,16 +11,17 @@ import android.view.ViewGroup;
 
 import com.tjeit.tablayoutpractice.R;
 import com.tjeit.tablayoutpractice.databinding.FragmentHomeBinding;
+import com.tjeit.tablayoutpractice.databinding.FragmentSearchBinding;
 
 
-public class HomeFragment extends Fragment {
+public class SearchFragment extends Fragment {
 
-    FragmentHomeBinding binding;
+    FragmentSearchBinding binding;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_home, container,false);
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_search,container, false);
         return binding.getRoot();
     }
 
@@ -28,6 +29,6 @@ public class HomeFragment extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        binding.welcomeMsgTxt.setText("홈 화면에 오신걸 환영합니다.");
+        binding.welcomeMsgTxt.setText("검색 뷰 화면에 오신걸 환영합니다.");
     }
 }
